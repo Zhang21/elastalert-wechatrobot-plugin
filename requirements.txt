@@ -1,0 +1,5 @@
+elastalert
+elasticsearch
+pyOpenSSL
+setuptools
+requests

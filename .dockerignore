@@ -1,0 +1,4 @@
+README.md
+cicd/
+.git/
+.gitlab-ci.yml

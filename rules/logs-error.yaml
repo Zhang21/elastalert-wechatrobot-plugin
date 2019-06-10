@@ -1,0 +1,38 @@
+type: frequency
+
+name: logs-error-test
+
+index: logs
+
+# include: ['level', 'log_message', 'line_num', 'class_method', 'service_name']
+
+timestamp_field: datetime
+
+query_delay:
+  minutes: 1
+
+realert:
+  hours: 2
+
+query_key:
+- level
+- line_num
+- class_method
+
+filter:
+- query:
+  - query_string:
+      query: "level: ERROR OR level: error"
+
+#sms credentials
+ak = xxx
+sk = xxx
+# ...
+
+alert:
+- "elastalert_modules.sms_alerts.xxxAlerter"
+- email
+
+email:
+- user1@email.com
+- user2@email.com

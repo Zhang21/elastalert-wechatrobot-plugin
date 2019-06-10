@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: elastalert-sms
+  namespace: test
+  labels:
+    app: elastalert-sms
+  annotations: ElastAlert SMS service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elastalert-sms
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 50%
+  template:
+    metadata:
+      labels:
+        app: elastalert-sms
+    spec:
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      containers:
+        - name: pod-elastalert-sms
+          image: repo.xxx.com/elastalert-sms:TTTAAAGGG
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: 0.5
+              memory: 500Mi
+            requests:
+              cpu: 0.01
+              memory: 50Mi
+      imagePullSecrets:
+        - name: default-secret
