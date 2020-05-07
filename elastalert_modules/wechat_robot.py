@@ -6,6 +6,7 @@
 @reference: https://github.com/xuyaoqiang/elastalert-dingtalk-plugin
 @wechat_robot: https://work.weixin.qq.com/help?doc_id=13376
 @date: 2020-04-30
+@author: Zhang
 @python: v3.6
 @license: MIT
 """
@@ -19,7 +20,13 @@ from elastalert.util import EAException
 
 
 class WechatRobotAlerter(Alerter):
-    retuired_options = frozenset(['wechat_robot_webhook', 'wechat_robot_msgtype'])
+    """params
+
+    :param wechat_robot_webhook: webhook of wechat group robot.
+    :param wechat_robot_msgtype: message type of wechat group robot.
+    :param wechat_robot_mentioned_list: mentioned_list of wechat group members.
+    """
+    required_options = frozenset(['wechat_robot_webhook', 'wechat_robot_msgtype'])
 
     def __init__(self, rule):
         super(WechatRobotAlerter, self).__init__(rule)
