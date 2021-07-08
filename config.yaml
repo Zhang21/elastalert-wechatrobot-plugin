@@ -55,3 +55,8 @@ writeback_index: elastalert_status
 # sending the alert until this time period has elapsed
 alert_time_limit:
   days: 2
+
+# wechat_robot settings
+# wechat_robot_webhook: "xxxx"
+wechat_robot_msgtype: "text"
+# wechat_robot_mentioned_list: ["zhang", "zhao"]
